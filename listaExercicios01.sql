@@ -36,3 +36,10 @@ exercício 8
 SELECT produto, AVG(receita) AS media_receita
 FROM vendas
 GROUP BY produto;
+
+ exercício 9
+SELECT produto, SUM(receita) AS receita_total
+FROM vendas
+GROUP BY produto
+HAVING SUM(receita) > 10000;
+
