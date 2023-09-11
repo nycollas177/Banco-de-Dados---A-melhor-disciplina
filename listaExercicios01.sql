@@ -88,6 +88,17 @@ SELECT produto, MIN(receita) AS menor_receita
 FROM vendas
 GROUP BY produto;
 
+exercício 18
+SELECT autores.nome, SUM(livros_vendidos.qtd_vendida * 20) AS receita_total
+FROM autores
+LEFT JOIN livros ON autores.id = livros.autor_id
+LEFT JOIN (
+    SELECT livro_id, COUNT() AS qtd_vendida
+    FROM vendas
+    GROUP BY livro_id
+) AS livros_vendidos ON livros.id = livros_vendidos.livro_id
+GROUP BY autores.id;
+
 
 
 
